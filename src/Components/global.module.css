@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+nav a:global(.active) {
+  color: #7ceab7;
+}
+
+.mapBefore {
+  content: ' ';
+  display: block;
+  width: 4px;
+  height: 11px;
+  margin-right: 3px;
+  background-color: #7ceab7;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
