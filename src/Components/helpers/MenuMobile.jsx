@@ -11,12 +11,12 @@ import Foto from '../../Assets/foto-perfil.jpg';
 export default function MenuMobile() {
   return (
     <div
-      className="absolute right-0 w-1/2 top-[96px] h-1/2 bg-zinc-700 z-10 border-t-4  border-[#7ceab7]
+      className="absolute right-0 w-250px top-[96px] h-180px bg-zinc-700 z-10 border-t-4  border-[#7ceab7]
      "
     >
       <div>
         <NavLink to="/conta">
-          <div className="flex justify-center items-center mt-6 ">
+          <div className="flex justify-center items-center mt-2 ">
             <img src={Foto} className="w-14 rounded-full" />
             <div className=" pl-2">
               <p className="text-sm">Bruno Petito</p>
@@ -24,7 +24,7 @@ export default function MenuMobile() {
             </div>
           </div>
         </NavLink>
-        <div className="py-10 flex flex-col align-left px-4 divide-y gap-2">
+        <div className="py-4 flex flex-col align-left px-4 divide-y ">
           <NavLink to="/calendario" className="flex  items-center w-full py-3">
             <Calendar size={44} />
             <p className="text-sm ml-2">Calendário</p>
