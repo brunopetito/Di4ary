@@ -216,8 +216,14 @@ export default function Notas() {
   }
 
   return (
-    <section className="flex items-center h-24 flex-col divide-y divide-zinc-200">
-      <div className="w-4/5 xl:w-2/3 max-w-screen-md flex items-center mt-10 justify-between text-zinc-800   ">
+    <section className="flex items-center h-24 flex-col divide-y divide-zinc-200 ">
+      <div
+        className="
+      flex 
+      xl:w-2/3 
+      max-w-screen-md 
+      items-center mt-10 justify-between text-zinc-800   "
+      >
         <Select
           options={anos}
           placeholder="Ano letivo"

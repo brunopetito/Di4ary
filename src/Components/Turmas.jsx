@@ -20,12 +20,15 @@ const anos = [
 ];
 
 const GET_ALUNOS_IN_CLASS = gql`
-  query ($id: ID) {
+  query ($id: ID = "") {
     turma(where: { id: $id }) {
       number
       alunos {
         name
         id
+        foto {
+          url
+        }
       }
     }
   }
@@ -110,7 +113,10 @@ function Turmas() {
           </div>
           <div>
             {alunosInTurma.map((aluno) => (
-              <div key={aluno.id}>{aluno.name}</div>
+              <div key={aluno.id}>
+                {aluno.name}
+                <img src={aluno.foto.url} className="w-32" />
+              </div>
             ))}
           </div>
         </div>
