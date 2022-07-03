@@ -11,7 +11,7 @@ import Foto from '../../Assets/foto-perfil.jpg';
 export default function MenuMobile() {
   return (
     <div
-      className="absolute right-0 w-[180px] top-[96px] h-1/2 bg-zinc-700 z-10 border-t-4  border-[#7ceab7]
+      className="absolute right-0 w-1/2 top-[96px] h-1/2 bg-zinc-700 z-10 border-t-4  border-[#7ceab7]
      "
     >
       <div>
