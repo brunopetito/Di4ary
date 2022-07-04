@@ -7,12 +7,15 @@ import Footer from './Components/Footer';
 
 export function App() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <ApolloProvider client={client}>
         <BrowserRouter>
           <Header />
-          <Router />
-          <Footer />
+          <div className="flex-1">
+            <Router />
+          </div>
+
+          <Footer className="relative bottom-0" />
         </BrowserRouter>
       </ApolloProvider>
     </div>

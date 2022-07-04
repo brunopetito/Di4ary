@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import { gql, useQuery } from '@apollo/client';
 import { request } from 'graphql-request';
-
+import { Notepad, PhoneIncoming } from 'phosphor-react';
 const GET_ALL_CLASSES = gql`
   query {
     turmas(orderBy: number_ASC) {
@@ -64,7 +64,7 @@ function Turmas() {
     console.log(alunosInTurma);
   }
   return (
-    <section className="flex items-center h-24 flex-col divide-y divide-zinc-200">
+    <section className="flex items-center h-24 flex-col divide-y divide-zinc-200 ">
       <div className="w-4/5 xl:w-2/3 max-w-screen-md flex items-center mt-10  text-zinc-800  ">
         <Select
           options={anos}
@@ -91,31 +91,59 @@ function Turmas() {
 
       {alunosInTurma && (
         <div className="w-3/5 text-zinc-800 mt-12 xl:w-2/3 flex flex-col    max-w-screen-md">
-          <div className="flex min-w-fit  items-center  mt-10 justify-between text-zinc-800 ">
-            <p className=" w-48 bg-emerald-200 text-center text-emerald-900 py-2 px-4 rounded font-display font-bold">
-              Nome do Aluno
+          <div className="flex min-w-fit   items-center  mt-10 justify-between text-zinc-800 ">
+            <p className=" w-24 bg-emerald-200 text-center text-emerald-900 py-2 px-4 rounded font-display font-bold">
+              Aluno
             </p>
-            <p className=" w-24 bg-violet-300  text-violet-900 py-2 px-4 rounded font-display font-bold">
-              Trabalho
+            <p
+              className="
+              w-fit
+              bg-violet-300
+              text-center
+              text-violet-800
+              py-2
+              px-4
+              rounded
+              font-display
+              font-bold
+              flex
+              align-center
+              gap-2
+              "
+            >
+              Observações dos Professores
+              <Notepad size={24} color="#5B21B6" />
             </p>
-            <p className=" w-24  text-center bg-violet-300  text-violet-900 py-2 px-4 rounded font-display font-bold">
-              Teste
-            </p>
-            <p className=" w-24  text-center bg-violet-300  text-violet-900 py-2 px-4 rounded font-display font-bold">
-              Prova
-            </p>
-            <p className="w-24  text-center bg-violet-300  text-violet-900 py-2 px-4 rounded font-display font-bold">
-              Reav
-            </p>
-            <p className=" w-24  text-center bg-violet-300  text-violet-900 py-2 px-4 rounded font-display font-bold">
-              Final
+            <p
+              className="
+              w-fit
+              bg-violet-300
+              text-center
+              text-violet-800
+              py-2
+              px-4
+              rounded
+              font-display
+              font-bold
+              flex
+              align-center
+              gap-2
+              "
+            >
+              Solicitar Contato com o Responsável
+              <PhoneIncoming size={24} color="#5B21B6" />
             </p>
           </div>
-          <div>
+          <div className=" overflow-visible ">
             {alunosInTurma.map((aluno) => (
-              <div key={aluno.id}>
-                {aluno.name}
-                <img src={aluno.foto.url} className="w-32" />
+              <div
+                key={aluno.id}
+                className="flex min-w-fit  items-center  mt-10 justify-between text-zinc-800"
+              >
+                <div className="flex flex-col align-center justify-center">
+                  <span>{aluno.name}</span>
+                  <img src={aluno.foto.url} className="w-32" />
+                </div>
               </div>
             ))}
           </div>
