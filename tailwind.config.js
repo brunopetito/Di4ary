@@ -13,6 +13,7 @@ module.exports = {
       // => @media (max-width: 767px) { ... }
       sm: { max: '639px' },
       // => @media (max-width: 639px) { ... }
+      jk: { max: '460px' },
     },
     extend: {
       fontFamily: {

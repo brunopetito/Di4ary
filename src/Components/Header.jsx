@@ -14,12 +14,7 @@ import Foto from '../Assets/foto-perfil.jpg';
 function Header() {
   const [hamburguerToggle, setHamburguerToggle] = React.useState(false);
   return (
-    <header
-      className="bg-zinc-700 flex items-center justify-center h-24 font-poppins  text-sm 
-    
-   
-    "
-    >
+    <header className="bg-zinc-700 flex items-center justify-center h-24 font-poppins  text-sm ">
       <nav
         className="w-4/5   flex items-center text-gray-50 justify-between xl:w-2/3 max-w-screen-lg
       

@@ -4,15 +4,19 @@ import style from './global.module.css';
 function Footer() {
   return (
     <footer className="bg-zinc-700 flex items-center justify-center h-40 bottom-0 fixed w-full font-poppins text-sm">
-      <div className="w-4/5 flex items-start text-gray-50 justify-between xl:w-2/3 max-w-screen-lg">
-        <div className="flex flex-col items-center">
+      <div
+        className="w-4/5 flex items-start text-gray-50 justify-between xl:w-2/3 max-w-screen-lg
+      md:w-[95%] md:justify-around
+      "
+      >
+        <div className="flex flex-col items-center lg:hidden">
           <p className="mb-4 font-poppins">Números</p>
           <div>
             <div className="bg-zinc-600 rounded py-2 px-8 mb-4">
-              23552 | Alunos Registrados
+              23552 | Alunos
             </div>
             <div className="bg-zinc-600 rounded py-2 px-8">
-              252 | Professores Registrados
+              252 | Professores
             </div>
           </div>
         </div>
@@ -27,7 +31,7 @@ function Footer() {
             <NavLink to="/frequencia">Frequência</NavLink>
           </nav>
         </div>
-        <div className="flex flex-col items-center w-auto">
+        <div className="flex flex-col items-center w-auto jk:hidden">
           <p className="mb-4 font-poppins">Suporte</p>
           <p className="mb-2 text-sm">email1@contato.gmail.com</p>
           <p className="mb-2 text-sm">email2@contato.gmail.com</p>
