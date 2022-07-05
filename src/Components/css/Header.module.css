@@ -1,0 +1,36 @@
+.mobileButton {
+  border-radius: 0.2rem;
+  height: 40x;
+  width: 40px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  transition: 0.1s;
+  cursor: pointer;
+}
+.mobileButton::after {
+  content: '';
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  box-shadow: 0 6px currentColor, 0 -6px currentColor;
+  transition: 0.2s;
+}
+
+.mobileButtonActive,
+.mobileButton:hover {
+  outline: none;
+  color: #7ceab7;
+  box-shadow: 0 0 3px #7ceab9;
+  border-color: #7ceab7;
+}
+.mobileButtonActive::after {
+  transform: rotate(-90deg);
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 8px currentColor, 0 -8px currentColor;
+}

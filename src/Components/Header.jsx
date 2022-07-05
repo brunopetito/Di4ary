@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MenuMobile from './helpers/MenuMobile';
+import styles from './css/Header.module.css';
 import {
   Exam,
   Calendar,
@@ -33,21 +34,15 @@ function Header() {
         >
           <div className="py-2">logo</div>
 
-          <div>
-            <button
-              onClick={() => {
-                setHamburguerToggle(!hamburguerToggle);
-              }}
-            >
-              {hamburguerToggle ? (
-                <X size={32} color="#e8e8e8" />
-              ) : (
-                <List size={32} color="#e8e8e8" />
-              )}
-            </button>
-
-            {hamburguerToggle && <MenuMobile />}
-          </div>
+          <button
+            className={`${styles.mobileButton} ${
+              hamburguerToggle && styles.mobileButtonActive
+            } `}
+            onClick={() => {
+              setHamburguerToggle(!hamburguerToggle);
+            }}
+          ></button>
+          {hamburguerToggle && <MenuMobile />}
         </div>
 
         <div className=" sm:hidden flex w-full items-center text-gray-50 justify-between">
