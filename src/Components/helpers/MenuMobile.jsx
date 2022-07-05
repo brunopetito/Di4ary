@@ -11,10 +11,10 @@ import Foto from '../../Assets/foto-perfil.jpg';
 export default function MenuMobile() {
   return (
     <div
-      className="absolute right-0 w-250px top-[96px] h-180px bg-zinc-700 z-10 border-t-4  border-[#7ceab7]
+      className="absolute right-0 w-full top-[96px] h-full bg-zinc-700 z-10 border-t-4  border-[#7ceab7]
      "
     >
-      <div>
+      <div className="flex items-center flex-col">
         <NavLink to="/conta">
           <div className="flex justify-center items-center mt-2 ">
             <img src={Foto} className="w-14 rounded-full" />
@@ -24,23 +24,38 @@ export default function MenuMobile() {
             </div>
           </div>
         </NavLink>
-        <div className="py-4 flex flex-col align-left px-4 divide-y ">
-          <NavLink to="/calendario" className="flex  items-center w-full py-3">
-            <Calendar size={44} />
-            <p className="text-sm ml-2">Calendário</p>
-          </NavLink>
-          <NavLink to="/turmas" className="flex  items-center py-3">
-            <Folders size={44} />
-            <p className="text-sm ml-2">Turmas</p>
-          </NavLink>
-          <NavLink to="/notas" className="flex  items-center py-3">
-            <Exam size={44} />
-            <p className="text-sm ml-2">Notas</p>
-          </NavLink>
-          <NavLink to="/frequencia" className="flex items-center py-3">
-            <PresentationChart size={44} />
-            <p className="text-sm ml-2">Frequência</p>
-          </NavLink>
+        <div className="py-4 flex flex-col  px-4 divide-y w-full ">
+          <div className=" flex justify-center w-full">
+            <NavLink to="/calendario" className="flex items-center py-3">
+              <Calendar size={44} />
+              <p className="text-sm ml-2">Calendário</p>
+            </NavLink>
+          </div>
+
+          <div className=" flex justify-center w-full">
+            <NavLink to="/turmas" className="flex  items-center py-3">
+              <Folders size={44} />
+              <p className="text-sm ml-2">Turmas</p>
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              to="/notas"
+              className="flex  items-center justify-center py-3"
+            >
+              <Exam size={44} />
+              <p className="text-sm ml-2">Notas</p>
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              to="/frequencia"
+              className="flex items-center justify-center py-3"
+            >
+              <PresentationChart size={44} />
+              <p className="text-sm ml-2">Frequência</p>
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>
