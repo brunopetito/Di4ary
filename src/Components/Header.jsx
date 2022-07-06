@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MenuMobile from './helpers/MenuMobile';
+
 import styles from './css/Header.module.css';
 import {
   Exam,
@@ -18,14 +19,12 @@ function Header() {
     <header className="bg-zinc-700 flex items-center justify-center h-24 font-poppins  text-sm ">
       <nav
         className="w-4/5   flex items-center text-gray-50 justify-between xl:w-2/3 max-w-screen-lg
-      
       md:w-11/12
-
-     
       "
       >
         <div
           className="hidden 
+          w-1
           sm:w-full
           sm:flex
           sm:align-center
@@ -42,7 +41,12 @@ function Header() {
               setHamburguerToggle(!hamburguerToggle);
             }}
           ></button>
-          {hamburguerToggle && <MenuMobile />}
+          {hamburguerToggle && (
+            <MenuMobile
+              setHamburguerToggle={(setHamburguerToggle, hamburguerToggle)}
+              className={hamburguerToggle ? 'bg-esmerald-100' : null}
+            />
+          )}
         </div>
 
         <div className=" sm:hidden flex w-full items-center text-gray-50 justify-between">
