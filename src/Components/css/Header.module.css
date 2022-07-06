@@ -34,3 +34,11 @@
   height: 4px;
   box-shadow: 0 8px currentColor, 0 -8px currentColor;
 }
+
+.teste {
+  width: 100%;
+  min-height: 100vh;
+  z-index: 1000;
+  position: absolute;
+  display: block;
+}

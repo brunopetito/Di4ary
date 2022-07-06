@@ -16,11 +16,14 @@ import Foto from '../Assets/foto-perfil.jpg';
 function Header() {
   const [hamburguerToggle, setHamburguerToggle] = React.useState(false);
   return (
-    <header className="bg-zinc-700 flex items-center justify-center h-24 font-poppins  text-sm ">
+    <header
+      className={`bg-zinc-700 flex items-center justify-center h-24 font-poppins  text-sm transition ${
+        hamburguerToggle ? `${styles.teste}` : null
+      }`}
+    >
       <nav
-        className="w-4/5   flex items-center text-gray-50 justify-between xl:w-2/3 max-w-screen-lg
-      md:w-11/12
-      "
+        className={`w-4/5   flex items-center text-gray-50 justify-between xl:w-2/3 max-w-screen-lg 
+      md:w-11/12  ${hamburguerToggle ? ' absolute top-[1.9rem]' : 'null'}`}
       >
         <div
           className="hidden 
@@ -29,7 +32,8 @@ function Header() {
           sm:flex
           sm:align-center
           sm:justify-between
-          sm:px-9"
+          sm:px-9
+          "
         >
           <div className="py-2">logo</div>
 
@@ -44,7 +48,6 @@ function Header() {
           {hamburguerToggle && (
             <MenuMobile
               setHamburguerToggle={(setHamburguerToggle, hamburguerToggle)}
-              className={hamburguerToggle ? 'bg-esmerald-100' : null}
             />
           )}
         </div>
