@@ -4,6 +4,7 @@ import { client } from './lib/apollo';
 import { ApolloProvider } from '@apollo/client';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import React from 'react';
 
 export function App() {
   return (

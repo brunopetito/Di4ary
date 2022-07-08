@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { ReactComponent as Logo } from '../Assets/Logo.svg';
 import styles from './css/Header.module.css';
 import {
   Exam,
@@ -34,7 +34,9 @@ function Header() {
           sm:px-9
           "
         >
-          <div className="py-2">logo</div>
+          <NavLink to="/home" className="">
+            <Logo />
+          </NavLink>
 
           <button
             className={`${styles.mobileButton} ${
@@ -117,7 +119,7 @@ function Header() {
 
         <div className=" sm:hidden flex w-full items-center text-gray-50 justify-between">
           <NavLink to="/home" className="sm:hidden">
-            Logo
+            <Logo />
           </NavLink>
           <NavLink
             to="/calendario"
