@@ -7,6 +7,7 @@ export default function ModalAluno({ aluno, setModalState }) {
       setModalState(false);
     }
   }
+  console.log(aluno.sangue);
   return (
     <>
       <div className={styles.modal} onClick={handleOutsideClick}>
@@ -24,11 +25,11 @@ export default function ModalAluno({ aluno, setModalState }) {
                 Responsável Pedagógico
               </label>
               <input
-                className="shadow appearance-none border rounded w-4/5 py-2 px-3 text-gray-700 leading-tight placeholder-gray-900 outline-none"
+                className="shadow appearance-none border rounded w-4/5 py-2 px-3 text-gray-700 leading-tight placeholder-gray-900 outline-none overflow-auto"
                 id="responsavelPedagogico"
                 type="text"
                 disabled
-                placeholder="Username"
+                placeholder={aluno.responsavelp}
               />
             </div>
 
@@ -44,7 +45,7 @@ export default function ModalAluno({ aluno, setModalState }) {
                 id="responsavelFinanceiro"
                 type="text"
                 disabled
-                placeholder="Username"
+                placeholder={aluno.responsavelf}
               />
             </div>
 
@@ -60,7 +61,7 @@ export default function ModalAluno({ aluno, setModalState }) {
                 id="contato1"
                 type="number"
                 disabled
-                placeholder="321312312"
+                placeholder={aluno.contatop}
               />
             </div>
 
@@ -76,7 +77,7 @@ export default function ModalAluno({ aluno, setModalState }) {
                 id="contato1"
                 type="number"
                 disabled
-                placeholder="321312312"
+                placeholder={aluno.contatoF}
               />
             </div>
 
@@ -93,10 +94,10 @@ export default function ModalAluno({ aluno, setModalState }) {
                   id="sangue"
                   type="text"
                   disabled
-                  placeholder="A+"
+                  placeholder={aluno.sangue}
                 />
               </div>
-              <div className="">
+              <div>
                 <label
                   className="block text-gray-700 text-sm font-bold mb-1 "
                   htmlFor="sangue"
@@ -109,7 +110,7 @@ export default function ModalAluno({ aluno, setModalState }) {
                   id="sangue"
                   type="text"
                   disabled
-                  placeholder="Alergia"
+                  placeholder={aluno.alergia}
                 />
               </div>
             </div>
@@ -121,12 +122,12 @@ export default function ModalAluno({ aluno, setModalState }) {
               >
                 Observação
               </label>
-              <input
+              <textarea
                 className="shadow appearance-none border rounded w-4/5 py-2 px-3 text-gray-700 leading-tight placeholder-gray-900 outline-none"
                 id="OBS"
                 type="text"
                 disabled
-                placeholder="321312312"
+                placeholder={aluno.observacao}
               />
             </div>
           </div>

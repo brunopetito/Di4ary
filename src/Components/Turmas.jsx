@@ -27,6 +27,13 @@ const GET_ALUNOS_IN_CLASS = gql`
       alunos(orderBy: name_ASC) {
         name
         id
+        alergia
+        contatoF
+        contatop
+        observacao
+        sangue
+        responsavelp
+        responsavelf
         foto {
           url
         }
