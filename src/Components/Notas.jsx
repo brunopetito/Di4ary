@@ -268,7 +268,7 @@ export default function Notas() {
 
       {turmaSelected && (
         <div
-          className="w-3/5 text-zinc-800 mt-12 xl:w-2/3 flex flex-col max-w-3xl 
+          className="w-3/5 text-zinc-800 mt-12 xl:w-2/3 flex flex-col max-w-3xl mb-10
         md:w-full p-2 sm:overflow-auto gap-1 "
         >
           <h2 className="text-center pt-4 text-2xl ">
