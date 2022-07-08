@@ -16,7 +16,7 @@ export function App() {
             <Router />
           </div>
 
-          <Footer className="relative bottom-0" />
+          <Footer />
         </BrowserRouter>
       </ApolloProvider>
     </div>
