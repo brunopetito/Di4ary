@@ -21,7 +21,8 @@ function Header() {
       }`}
     >
       <nav
-        className={`w-4/5   flex items-center text-gray-50 justify-between xl:w-2/3 max-w-screen-lg 
+        className={`w-4/5   flex items-center text-gray-50 justify-between xl:w-2/3 
+          max-w-5xl
       md:w-11/12  ${hamburguerToggle ? ' absolute top-[1.9rem]' : 'null'}`}
       >
         <div

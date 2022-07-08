@@ -203,7 +203,7 @@ export default function AlunosNotas({
     });
   }
   return (
-    <div className=" min-w-fit flex items-center align-center justify-between text-zinc-800 mt-2">
+    <div className=" min-w-fit flex items-center align-center justify-between text-zinc-800 mt-2 overflow-auto">
       <p className="w-48  truncate px-4 py-2 border rounded">{aluno.name}</p>
       <div className="w-24 h-10 border rounded placeholder-gray-900 flex align-center focus-within:border-2 focus-within:border-zinc-700">
         <input

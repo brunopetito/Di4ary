@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import style from './global.module.css';
 function Footer() {
   return (
-    <footer className="bg-zinc-700 flex items-center justify-center h-40 w-full relative font-poppins text-sm">
+    <footer className="bg-zinc-700 flex items-center justify-center h-40 w-full relative font-poppins text-sm ">
       <div
-        className="w-4/5 flex items-start text-gray-50 justify-between xl:w-2/3 max-w-screen-lg
+        className="w-4/5 flex items-start text-gray-50 justify-between xl:w-2/3 max-w-5xl
       md:w-[95%] md:justify-around
       "
       >

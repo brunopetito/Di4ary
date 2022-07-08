@@ -65,24 +65,6 @@ const CREATE_ALUNO_NOTA = gql`
   }
 `;
 
-const UPDATE_ALUNO_NOTA = gql`
-  mutation MyMutation(
-    $id: ID
-    $n1: Float
-    $n2: Float
-    $n3: Float
-    $reav: Float
-    $final: Float
-  ) {
-    updateNota(
-      where: { id: $id }
-      data: { n1: $n1, n2: $n2, n3: $n3, reav: $reav, final: $final }
-    ) {
-      id
-    }
-  }
-`;
-
 const materia = [
   { value: 'Artes', label: 'Artes' },
   { value: 'Biologia', label: 'Biologia' },
@@ -112,7 +94,6 @@ const periodos = [
 
 export default function Notas() {
   const [loading, setLoading] = React.useState(false);
-  const [loadingMudarNota, setLoadingMudarNota] = React.useState();
   const [turmas, setTurmas] = React.useState([]);
 
   const [ano, setAno] = React.useState('');
@@ -216,13 +197,26 @@ export default function Notas() {
   }
 
   return (
-    <section className="flex items-center h-24 flex-col divide-y divide-zinc-200 ">
+    <section
+      className="flex items-center h-fit flex-col divide-y divide-zinc-200 
+      
+    "
+    >
       <div
         className="
       flex 
-      xl:w-2/3 
-      max-w-screen-md 
-      items-center mt-10 justify-between text-zinc-800   "
+      max-w-5xl 
+      items-center mt-10 justify-between text-zinc-800
+      gap-2 
+
+      sm:grid
+      sm:grid-cols-2 
+      sm:gap-3
+      jk:grid-cols-2
+      mn:grid-cols-1
+      
+      sm:justify-start
+      "
       >
         <Select
           options={anos}
@@ -233,7 +227,7 @@ export default function Notas() {
         />
         <Select
           options={turmas}
-          placeholder="Turmas"
+          placeholder="Turma"
           onChange={(a) => {
             setTurma(a.value);
           }}
@@ -254,29 +248,35 @@ export default function Notas() {
             setDisciplina(a.value);
           }}
         />
-        {loading ? (
-          <button className="  py-2 px-4 rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8">
-            Buscando...
-          </button>
-        ) : (
-          <button
-            onClick={buttonClick}
-            className=" bg-violet-300 py-2 px-6 rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
-          duration-300"
-          >
-            Buscar ➜
-          </button>
-        )}
+
+        <div className="">
+          {loading ? (
+            <button className="py-2 px-4 w-fit  rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 ">
+              Buscando...
+            </button>
+          ) : (
+            <button
+              onClick={buttonClick}
+              className=" bg-violet-300 w-fit py-2 px-6 rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
+          duration-300 "
+            >
+              Buscar ➜
+            </button>
+          )}
+        </div>
       </div>
 
       {turmaSelected && (
-        <div className="w-3/5 text-zinc-800 mt-12 xl:w-2/3 flex flex-col    max-w-screen-md">
-          <h2 className="text-center pt-4 text-2xl">
+        <div
+          className="w-3/5 text-zinc-800 mt-12 xl:w-2/3 flex flex-col max-w-3xl 
+        md:w-full p-2 sm:overflow-auto gap-1 "
+        >
+          <h2 className="text-center pt-4 text-2xl ">
             {anoSelected} ---{alunosTurma ? alunosTurma.turma.number : null} ---
             {disciplinaSelected} --- {periodoSelected}p
           </h2>
 
-          <div className="flex min-w-fit  items-center  mt-10 justify-between text-zinc-800 ">
+          <div className="flex min-w-fit  items-center  mt-10 justify-between text-zinc-800 sm:overflow-auto">
             <p className=" w-48 bg-emerald-200 text-center text-emerald-900 py-2 px-4 rounded font-display font-bold">
               Nome do Aluno
             </p>
