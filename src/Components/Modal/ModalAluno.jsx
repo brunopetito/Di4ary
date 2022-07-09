@@ -11,12 +11,16 @@ export default function ModalAluno({ aluno, setModalState }) {
   return (
     <>
       <div className={styles.modal} onClick={handleOutsideClick}>
-        <div className=" m-auto z-10 bg-zinc-100 w-4/5 h-3/5 rounded flex flex-col text-center max-w-lg shadow sm:h-4/5">
+        <div className=" m-auto z-10 bg-zinc-100 w-4/5 h-3/5 rounded flex flex-col text-center max-w-lg shadow ">
           <div className=" text-2xl flex mx-auto justify-center align-center mt-6">
-            <img className="w-40 sm:w-28" src={aluno.foto.url} alt="" />
-            <p className="m-auto px-4 break-all"> {aluno.name}</p>
+            <img
+              className="w-40 sm:w-28 jk:w-24 px-2"
+              src={aluno.foto.url}
+              alt=""
+            />
+            <p className="m-auto px-4 break-word"> {aluno.name}</p>
           </div>
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-1 gap-8 overflow-auto">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-1 gap-8 sm:overflow-y-scroll">
             <div>
               <label
                 className="block text-gray-700 text-sm font-bold mb-1"

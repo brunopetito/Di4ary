@@ -213,24 +213,25 @@ export default function Notas() {
       max-w-5xl 
       items-center mt-10 justify-between text-zinc-800
       gap-2 
-
       sm:grid
       sm:grid-cols-2 
       sm:gap-3
       jk:grid-cols-2
-      mn:grid-cols-1
-      
+      mn:gap-1
       sm:justify-start
+      sm:relative
       "
       >
         <Select
+          className="w-[100px] sm:w-[113px] mn:w-fit"
           options={anos}
-          placeholder="Ano letivo"
+          placeholder="Ano"
           onChange={(a) => {
             setAno(a.value);
           }}
         />
         <Select
+          className="w-[103.91px] sm:w-[142.2px] mn:w-fit"
           options={turmas}
           placeholder="Turma"
           onChange={(a) => {
@@ -238,6 +239,7 @@ export default function Notas() {
           }}
         />
         <Select
+          className="w-[113.14px] sm:w-[113px] mn:w-fit"
           options={periodos}
           placeholder="Periodo"
           onChange={(a) => {
@@ -246,7 +248,7 @@ export default function Notas() {
         />
 
         <Select
-          className="w-auto"
+          className="w-[142.2px] mn:w-fit"
           options={materia}
           placeholder="Disciplina"
           onChange={(a) => {
@@ -254,15 +256,15 @@ export default function Notas() {
           }}
         />
 
-        <div className="">
+        <div className="sm:hidden">
           {loading ? (
-            <button className="py-2 px-4 w-fit  rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 ">
+            <button className="py-1 px-4 w-fit h-[38px] rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 ">
               Buscando...
             </button>
           ) : (
             <button
               onClick={buttonClick}
-              className=" bg-violet-300 w-fit py-2 px-6 rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
+              className=" bg-violet-300 w-fit py-1 px-6 h-[38px] rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
           duration-300 "
             >
               Buscar ➜
@@ -270,6 +272,22 @@ export default function Notas() {
           )}
         </div>
       </div>
+      <div className="hidden sm:inline-block mt-4 w-[142px]">
+        {loading ? (
+          <button className="py-1 px-4 w-fit h-[38px] rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 mn:w-[142px]">
+            Buscando...
+          </button>
+        ) : (
+          <button
+            onClick={buttonClick}
+            className=" bg-violet-300 w-fit py-1 px-6 h-[38px] rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
+          duration-300 mn:w-[142px]"
+          >
+            Buscar ➜
+          </button>
+        )}
+      </div>
+
       {blank ? (
         <div
           className="bg-red-100 border border-red-400 text-red-700 px-5 py-3 rounded relative mt-4 sm:px-3"

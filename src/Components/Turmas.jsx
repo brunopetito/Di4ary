@@ -83,29 +83,34 @@ function Turmas() {
   }
   return (
     <section className="flex items-center h-fit flex-col divide-y divide-zinc-200 mb-8 ">
-      <div className="w-4/5 xl:w-2/3 max-w-screen-md flex items-center mt-10  text-zinc-800  justify-center gap-1 tk:w-full jk:grid">
-        <Select
-          options={anos}
-          placeholder="Ano letivo"
-          onChange={(a) => {
-            setAno(a.value);
-          }}
-        />
-        <Select
-          options={turmas}
-          placeholder="Turmas"
-          onChange={(a) => {
-            setTurmaSelected(a.value);
-          }}
-        />
+      <div className="w-4/5 xl:w-2/3 max-w-screen-md flex  mt-10  text-zinc-800  justify-center  gap-2 tk:w-full jk:px-2 ">
+        <div className="flex jk:grid jk:mr-4 gap-2">
+          <Select
+            className=" h-10 w-[100px] jk:w-[104px]"
+            options={anos}
+            placeholder="Ano"
+            onChange={(a) => {
+              setAno(a.value);
+            }}
+          />
+          <Select
+            className=" w-[104px]"
+            options={turmas}
+            placeholder="Turmas"
+            onChange={(a) => {
+              setTurmaSelected(a.value);
+            }}
+          />
+        </div>
+
         {loading ? (
-          <button className="py-2 px-4 w-fit  rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 ">
+          <button className="py-2 px-4 w-32 h-[38px]  rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 jk:mt-5">
             Buscando...
           </button>
         ) : (
           <button
             onClick={buttonClick}
-            className=" bg-violet-300 w-fit py-2 px-6 rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
+            className=" bg-violet-300 w-32 py-1 h-[38px]  px-6 rounded  text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition jk:mt-6
           duration-300 "
           >
             Buscar ➜

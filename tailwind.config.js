@@ -16,7 +16,7 @@ module.exports = {
       tk: { max: '550px' },
       jk: { max: '460px' },
 
-      mn: { max: '300px' },
+      mn: { max: '380px' },
     },
     extend: {
       fontFamily: {
