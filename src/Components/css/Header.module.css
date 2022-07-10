@@ -35,10 +35,12 @@
   box-shadow: 0 8px currentColor, 0 -8px currentColor;
 }
 
-.teste {
+.open {
+  transition-property: height;
+  transition-duration: 1s;
   width: 100vw;
-  min-height: 100vh;
+  height: 100%;
   z-index: 1000;
-  transition: all 0.5s linear;
   position: absolute;
+  overflow-y: hidden;
 }
