@@ -13,6 +13,7 @@ module.exports = {
       // => @media (max-width: 767px) { ... }
       sm: { max: '680px' },
       // => @media (max-width: 639px) { ... }
+
       tk: { max: '550px' },
       jk: { max: '460px' },
 
