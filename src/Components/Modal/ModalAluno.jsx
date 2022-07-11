@@ -7,17 +7,17 @@ export default function ModalAluno({ aluno, setModalState }) {
       setModalState(false);
     }
   }
-  console.log(aluno.sangue);
+
   return (
     <>
       <div className={styles.modal} onClick={handleOutsideClick}>
         <div className=" m-auto z-10 bg-zinc-100 w-fit h-fit rounded flex flex-col text-center max-w-lg shadow py-5 relative">
           <span
-            class="absolute top-0 bottom-0 right-0 px-4 py-3 sm:py-0 sm:px-0"
+            className="absolute top-0 bottom-0 right-0 px-4 py-3 sm:py-0 sm:px-0"
             onClick={() => setModalState(false)}
           >
             <svg
-              class="fill-current h-8 w-8 text-red-500"
+              className="fill-current h-8 w-8 text-red-500"
               role="button"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"

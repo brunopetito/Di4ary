@@ -17,14 +17,14 @@ function Header() {
 
   return (
     <header
-      className={`bg-zinc-700 flex items-center  justify-center font-poppins  text-sm  ${
+      className={`bg-zinc-700 flex items-center  justify-center font-poppins  text-sm absolute w-full  ${
         hamburguerToggle ? `${styles.open}` : `h-24 `
       }`}
     >
       <nav
         className={`w-4/5  flex items-center text-gray-50 justify-between xl:w-2/3 
-          max-w-5xl 
-      md:w-11/12  ${hamburguerToggle ? ' absolute top-[1.9rem] z-10' : 'null'}`}
+          max-w-5xl absolute
+      md:w-11/12  ${hamburguerToggle ? ' top-[1.9rem] z-10' : 'null'}`}
       >
         <div
           className={` 

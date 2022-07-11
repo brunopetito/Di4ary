@@ -12,7 +12,7 @@ export function App() {
       <ApolloProvider client={client}>
         <BrowserRouter>
           <Header />
-          <div className="flex-1">
+          <div className="flex-1 mt-24">
             <Router />
           </div>
 
