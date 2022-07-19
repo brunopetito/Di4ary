@@ -6,10 +6,10 @@ function Footer() {
     <footer className="bg-zinc-700 flex items-center justify-center h-40 w-full relative font-poppins text-sm ">
       <div
         className="w-4/5 flex items-start text-gray-50 justify-between xl:w-2/3 max-w-5xl
-      md:w-[95%] md:justify-around
+      md:w-[95%] md:justify-around lg:w-11/12 
       "
       >
-        <div className="flex flex-col items-center lg:hidden">
+        <div className="flex flex-col items-center md:hidden">
           <p className="mb-4 font-poppins">Números</p>
           <div>
             <div className="bg-zinc-600 rounded py-2 px-8 mb-4">

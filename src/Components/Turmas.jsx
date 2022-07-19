@@ -80,6 +80,7 @@ function Turmas() {
     } else {
       setBlank(true);
     }
+    console.log(alunosInTurma);
   }
   return (
     <section className="flex items-center h-fit flex-col divide-y divide-zinc-200 mb-8 ">

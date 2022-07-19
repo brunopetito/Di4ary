@@ -26,7 +26,7 @@ function Header() {
         <nav
           className={`w-4/5  flex items-center text-gray-50 justify-between xl:w-2/3 
           max-w-5xl top-[1.9rem] z-10 sm:absolute
-      md:w-11/12 `}
+       lg:w-11/12 `}
         >
           <div
             className={` hidden
@@ -42,7 +42,7 @@ function Header() {
             <NavLink
               to="/home"
               onClick={() => {
-                setHamburguerToggle(!hamburguerToggle);
+                setHamburguerToggle(false);
               }}
             >
               <Logo />

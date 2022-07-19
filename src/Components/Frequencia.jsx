@@ -65,8 +65,20 @@ function Frequencia() {
     console.log('clicado');
   }
   return (
-    <section className="flex flex-col items-center justify-center h-24">
-      <div className="w-4/5 xl:w-2/3 max-w-screen-md flex items-center mt-10 justify-between text-zinc-800 ">
+    <section className="flex items-center h-fit flex-col divide-y divide-zinc-200 ">
+      <div
+        className="  flex 
+      max-w-5xl 
+      items-center mt-10 justify-between text-zinc-800
+      gap-2 
+      sm:grid
+      sm:grid-cols-2 
+      sm:gap-3
+      jk:grid-cols-2
+      mn:gap-1
+      sm:justify-start
+      sm:relative "
+      >
         <Select
           options={anos}
           placeholder="Ano letivo"
@@ -105,8 +117,6 @@ function Frequencia() {
           Buscar ➜
         </button>
       </div>
-
-      <p>teste</p>
     </section>
   );
 }

@@ -203,7 +203,7 @@ export default function Notas() {
 
   return (
     <section
-      className="flex items-center h-fit flex-col divide-y divide-zinc-200 
+      className="flex items-center h-fit flex-col divide-y divide-zinc-200  
       
     "
     >
