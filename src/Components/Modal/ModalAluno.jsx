@@ -27,7 +27,11 @@ export default function ModalAluno({ aluno, setModalState }) {
             </svg>
           </span>
           <div className=" text-2xl flex mx-16 justify-center align-center">
-            <img className="w-40 sm:w-32  px-2" src={aluno.foto.url} alt="" />
+            <img
+              className="w-40 sm:w-32  h-40 sm:h-32 px-2"
+              src={aluno.foto.url}
+              alt=""
+            />
             <p className="m-auto px-4 break-word"> {aluno.name}</p>
           </div>
           <div className="mt-14 grid grid-cols-2 sm:grid-cols-1 gap-8 sm:overflow-y-auto">

@@ -4,6 +4,7 @@ import { gql, useQuery } from '@apollo/client';
 import { request } from 'graphql-request';
 import { Notepad, PhoneIncoming } from 'phosphor-react';
 import AlunoPerfil from './AlunoPerfil';
+
 const GET_ALL_CLASSES = gql`
   query {
     turmas(orderBy: number_ASC) {

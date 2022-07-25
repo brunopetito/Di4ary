@@ -6,6 +6,7 @@ import Frequencia from './Components/Frequencia';
 import Turmas from './Components/Turmas';
 import Conta from './Components/Conta';
 import Home from './Components/Home';
+import Login from './Components/Login';
 
 export function Router() {
   return (
@@ -15,7 +16,10 @@ export function Router() {
       <Route path="/frequencia" element={<Frequencia />} />
       <Route path="/turmas" element={<Turmas />} />
       <Route path="/conta" element={<Conta />} />
+      <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
+
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { request } from 'graphql-request';
-import { gql, useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
 import { Check, X } from 'phosphor-react';
 
 const GET_ALUNOS_IN_CLASS = gql`

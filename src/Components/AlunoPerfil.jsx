@@ -13,7 +13,7 @@ export default function AlunoPerfil({ aluno }) {
           className="flex flex-col align-center justify-center"
           onClick={() => setModalState(!modal)}
         >
-          <img src={aluno.foto.url} className="w-32" />
+          <img src={aluno.foto.url} className="w-32 h-32" />
           <span className="truncate">{aluno.name}</span>
         </button>
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { useEffect } from 'react';
 import Select from 'react-select';
+import { UserContext } from '../UserContext';
 const materia = [
   { value: 'Artes', label: 'Artes' },
   { value: 'Biologia', label: 'Biologia' },
@@ -40,6 +41,7 @@ const GET_ALL_CLASSES = gql`
 `;
 
 function Frequencia() {
+  const { userLogin, data } = React.useContext(UserContext);
   const turmasFetch = [];
   const [ano, setAno] = React.useState('');
   const [turma, setTurma] = React.useState('');
@@ -47,8 +49,6 @@ function Frequencia() {
 
   const [periodo, setPeriodo] = React.useState('');
   const [disciplina, setDisciplina] = React.useState('');
-
-  const { data } = useQuery(GET_ALL_CLASSES);
 
   React.useEffect(() => {
     if (ano) {
@@ -61,9 +61,6 @@ function Frequencia() {
     setTurmas(turmasFetch);
   }, [ano]);
 
-  function buttonClick() {
-    console.log('clicado');
-  }
   return (
     <section className="flex items-center h-fit flex-col divide-y divide-zinc-200 ">
       <div
