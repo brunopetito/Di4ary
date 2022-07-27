@@ -175,32 +175,28 @@ function Header() {
 
               <div className="flex flex-col relative">
                 <div className="flex justify-center items-center ">
-                  {data ? (
-                    <img
-                      src={data.teacher.photo.url}
-                      className="w-14 rounded-full"
-                    />
-                  ) : null}
+                  <img
+                    src={
+                      data
+                        ? data.teacher.photo.url
+                        : window.localStorage.getItem('TeacherPhoto')
+                    }
+                    className="w-14 rounded-full"
+                  />
 
                   {/* ROBEI, TIVE QUE USAR O LOCAL STORAGE NA ATUALIZAÇÃO DE PÁGINA*/}
                   <div className=" pl-2">
-                    {data ? (
-                      <>
-                        <p className="text-sm">{data.teacher.name}</p>
-                        <p className="text-xs text-zinc-400 ">
-                          {data.teacher.occupation}
-                        </p>
-                      </>
-                    ) : (
-                      <>
-                        <p className="text-sm">
-                          {window.localStorage.getItem('TeacherName')}
-                        </p>
-                        <p className="text-xs text-zinc-400 ">
-                          {window.localStorage.getItem('TeacherOccupation')}
-                        </p>
-                      </>
-                    )}
+                    <p className="text-sm">
+                      {data
+                        ? data.teacher.name
+                        : window.localStorage.getItem('TeacherName')}
+                    </p>
+                    <p className="text-xs text-zinc-400 ">
+                      {data
+                        ? data.teacher.occupation
+                        : window.localStorage.getItem('TeacherOccupation')}
+                    </p>
+
                     <NavLink
                       to="/home"
                       className="flex  items-center "

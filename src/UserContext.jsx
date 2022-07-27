@@ -44,7 +44,7 @@ export const UserStorage = ({ children }) => {
         'TeacherOccupation',
         response.teacher.occupation,
       );
-      window.localStorage.setItem('TeacherPhoto', response.teacher.photo);
+      window.localStorage.setItem('TeacherPhoto', response.teacher.photo.url);
       setData(response);
     });
   }

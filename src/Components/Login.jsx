@@ -42,6 +42,8 @@ function Login() {
         >
           Logar ➜
         </button>
+        <p>Username: admin@gmail.com</p>
+        <p>Senha: admin</p>
       </div>
     </section>
   );
