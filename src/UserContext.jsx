@@ -14,6 +14,18 @@ const GET_USER_ID = gql`
   }
 `;
 
+const GET_USER_DATA = gql`
+  query ($id: ID) {
+    teacher(where: { id: $id }) {
+      name
+      occupation
+      photo {
+        url
+      }
+    }
+  }
+`;
+
 export const UserStorage = ({ children }) => {
   const [data, setData] = React.useState('');
   const [login, setLogin] = React.useState(false);
@@ -21,13 +33,21 @@ export const UserStorage = ({ children }) => {
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
 
-  // async function getUser(token) {
-  //   const { url, options } = USER_GET(token);
-  //   const response = await fetch(url, options);
-  //   const json = await response.json();
-  //   setData(json);
-  //   setLogin(true);
-  // }
+  async function getTeacherData(id) {
+    const teacherData = await request(
+      'https://api-sa-east-1.graphcms.com/v2/cl4vkzw981oj301t658u6cr2b/master',
+      GET_USER_DATA,
+      { id: id },
+    ).then((response) => {
+      window.localStorage.setItem('TeacherName', response.teacher.name);
+      window.localStorage.setItem(
+        'TeacherOccupation',
+        response.teacher.occupation,
+      );
+      window.localStorage.setItem('TeacherPhoto', response.teacher.photo);
+      setData(response);
+    });
+  }
 
   const userLogout = React.useCallback(
     async function () {
@@ -36,6 +56,9 @@ export const UserStorage = ({ children }) => {
       setLoading(false);
       setLogin(false);
       window.localStorage.removeItem('id');
+      window.localStorage.removeItem('TeacherName');
+      window.localStorage.removeItem('TeacherOccupation');
+      window.localStorage.removeItem('TeacherPhoto');
       navigate('/login');
     },
     [navigate],
@@ -51,9 +74,10 @@ export const UserStorage = ({ children }) => {
         { user: username, password: password },
       ).then((response) => {
         if (response.teachers.length > 0) {
-          setData(response);
-          setLogin(true);
           window.localStorage.setItem('id', response.teachers[0]);
+          getTeacherData(response.teachers[0].id);
+
+          setLogin(true);
           navigate('/home');
         }
       });
@@ -87,7 +111,16 @@ export const UserStorage = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ userLogin, userLogout, data, error, loading, login }}
+      value={{
+        userLogin,
+        userLogout,
+        data,
+        error,
+        loading,
+        login,
+        getTeacherData,
+        setData,
+      }}
     >
       {children}
     </UserContext.Provider>

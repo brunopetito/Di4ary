@@ -61,6 +61,9 @@ function Frequencia() {
     setTurmas(turmasFetch);
   }, [ano]);
 
+  function handleClick() {
+    console.log('clicado');
+  }
   return (
     <section className="flex items-center h-fit flex-col divide-y divide-zinc-200 ">
       <div
@@ -107,7 +110,7 @@ function Frequencia() {
           }}
         />
         <button
-          onClick={buttonClick}
+          onClick={handleClick}
           className=" bg-violet-300 py-2 px-6 rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
           duration-300"
         >

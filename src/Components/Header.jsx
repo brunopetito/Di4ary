@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as Logo } from '../Assets/Logo.svg';
 import { UserContext } from '../UserContext';
-import { useNavigate } from 'react-router-dom';
 
 import styles from './css/Header.module.css';
 import {
@@ -12,14 +11,13 @@ import {
   PresentationChart,
   User,
   Door,
+  CaretDown,
 } from 'phosphor-react';
 import Foto from '../Assets/foto-perfil.jpg';
 
 function Header() {
   const [hamburguerToggle, setHamburguerToggle] = React.useState(false);
-  const { login, userLogout } = React.useContext(UserContext);
-  console.log;
-  const navigate = useNavigate();
+  const { login, userLogout, data } = React.useContext(UserContext);
 
   return (
     <header>
@@ -123,18 +121,7 @@ function Header() {
                     <p className="text-sm ml-2">Frequência</p>
                   </NavLink>
                 </div>
-                <div className=" flex justify-left w-full justify-center">
-                  <NavLink
-                    to="/conta"
-                    className="flex  items-center py-3 w-32"
-                    onClick={() => {
-                      setHamburguerToggle(false);
-                    }}
-                  >
-                    <User size={44} />
-                    <p className="text-sm ml-2">Conta</p>
-                  </NavLink>
-                </div>
+
                 <div className=" flex justify-left w-full justify-center">
                   <NavLink
                     to="/home"
@@ -185,15 +172,49 @@ function Header() {
                 <PresentationChart size={44} />
                 <p className="text-sm">Frequência</p>
               </NavLink>
-              <NavLink to="/conta">
+
+              <div className="flex flex-col relative">
                 <div className="flex justify-center items-center ">
-                  <img src={Foto} className="w-14 rounded-full" />
+                  {data ? (
+                    <img
+                      src={data.teacher.photo.url}
+                      className="w-14 rounded-full"
+                    />
+                  ) : null}
+
+                  {/* ROBEI, TIVE QUE USAR O LOCAL STORAGE NA ATUALIZAÇÃO DE PÁGINA*/}
                   <div className=" pl-2">
-                    <p className="text-sm">Bruno Petito</p>
-                    <p className="text-xs text-zinc-400">Professor</p>
+                    {data ? (
+                      <>
+                        <p className="text-sm">{data.teacher.name}</p>
+                        <p className="text-xs text-zinc-400 ">
+                          {data.teacher.occupation}
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-sm">
+                          {window.localStorage.getItem('TeacherName')}
+                        </p>
+                        <p className="text-xs text-zinc-400 ">
+                          {window.localStorage.getItem('TeacherOccupation')}
+                        </p>
+                      </>
+                    )}
+                    <NavLink
+                      to="/home"
+                      className="flex  items-center "
+                      onClick={() => {
+                        userLogout();
+                        setHamburguerToggle(false);
+                      }}
+                    >
+                      <Door size={16} />
+                      <p className="text-sm ml-1">Sair</p>
+                    </NavLink>
                   </div>
                 </div>
-              </NavLink>
+              </div>
             </div>
           ) : (
             <div className=" sm:hidden flex w-full items-center text-gray-50 justify-between">

@@ -4,13 +4,11 @@ import { UserContext } from '../UserContext';
 function Login() {
   const [username, SetUsername] = React.useState('');
   const [password, SetPassword] = React.useState('');
-  const { userLogin, data } = React.useContext(UserContext);
+  const { userLogin, data, setData } = React.useContext(UserContext);
 
   async function handleClick() {
     try {
-      const logar = await userLogin(username, password).then((response) =>
-        console.log(data.teachers[0]),
-      );
+      const logar = await userLogin(username, password);
     } catch (e) {
       console.log(e);
     }
