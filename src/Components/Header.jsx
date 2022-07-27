@@ -219,7 +219,7 @@ function Header() {
               </NavLink>
 
               <NavLink to="/login">
-                <button className="flex justify-center items-center ">
+                <button className="flex justify-center items-center border p-2 rounded hover:border-[#7ceab7] hover:text-[#7ceab7]">
                   Logar
                 </button>
               </NavLink>
