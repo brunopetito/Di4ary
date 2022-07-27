@@ -16,7 +16,7 @@ export default function Home() {
     <section className="flex items-center h-fit justify-center  divide-zinc-200 mb-8  ">
       <div
         className="grid grid-cols-2 mt-20 
-      md:w-full md:px-4 sm:flex sm:align-middle sm:justify-center  max-w-5xl  xl:w-2/3 lg:w-11/12
+      md:w-full md:px-4 sm:flex sm:align-middle sm:justify-center  max-w-5xl  xl:w-2/3 lg:w-11/12 
       "
       >
         {/* col 1 */}
@@ -26,9 +26,9 @@ export default function Home() {
             escolar digital
           </p>
           <p className="mt-12">
-            Somos a maior plataforma de serviços financeiros feita para escolas.
-            Nossa parceria funciona assim: o isaac oferece facilidade em gestão
-            financeira e você toma as melhores decisões para a sua escola, com
+            Somos a menor plataforma de serviços feita para escolas. Nossa
+            parceria funciona assim: o Di4ry oferece facilidade em gestão
+            pedagógica e você toma as melhores decisões para a sua escola, com
             mais segurança, controle e tranquilidade.
           </p>
 

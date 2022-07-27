@@ -11,7 +11,7 @@ export default function ModalAluno({ aluno, setModalState }) {
   return (
     <>
       <div className={styles.modal} onClick={handleOutsideClick}>
-        <div className=" m-auto z-10 bg-zinc-100 w-fit h-fit rounded flex flex-col text-center max-w-lg shadow py-5 relative">
+        <div className=" m-auto z-10 bg-zinc-100 w-fit h-fit rounded flex flex-col text-center max-w-lg shadow py-5 relative mt-[90px]">
           <span
             className="absolute top-0 bottom-0 right-0 px-4 py-3 sm:py-0 sm:px-0"
             onClick={() => setModalState(false)}
@@ -34,7 +34,7 @@ export default function ModalAluno({ aluno, setModalState }) {
             />
             <p className="m-auto px-4 break-word"> {aluno.name}</p>
           </div>
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-1 gap-8 sm:overflow-y-auto">
+          <div className="mt-[14] grid grid-cols-2 sm:grid-cols-1 gap-8 sm:overflow-y-auto">
             <div>
               <label
                 className="block text-gray-700 text-sm font-bold mb-1"
