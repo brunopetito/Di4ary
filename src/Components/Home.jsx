@@ -13,14 +13,14 @@ export default function Home() {
     }
   }
   return (
-    <section className="flex items-center h-fit justify-center  divide-zinc-200 mb-8  ">
+    <section className="flex items-center h-fit justify-center  divide-zinc-200 mb-8   ">
       <div
         className="grid grid-cols-2 mt-20 
       md:w-full md:px-4 sm:flex sm:align-middle sm:justify-center  max-w-5xl  xl:w-2/3 lg:w-11/12 
       "
       >
         {/* col 1 */}
-        <div className="flex flex-col justify-start max-w-[80%] sm:w-full">
+        <div className="flex flex-col justify-start max-w-[80%] sm:w-full mn:max-w-full">
           <p className="text-5xl lg:text-4xl font-bold text- ">
             DI<span className="text-emerald-500">4</span>RY é seu novo diário
             escolar digital

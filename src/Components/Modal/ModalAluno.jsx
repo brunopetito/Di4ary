@@ -34,7 +34,7 @@ export default function ModalAluno({ aluno, setModalState }) {
             />
             <p className="m-auto px-4 break-word"> {aluno.name}</p>
           </div>
-          <div className="mt-[14] grid grid-cols-2 sm:grid-cols-1 gap-8 sm:overflow-y-auto">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-1 gap-8 sm:overflow-y-auto">
             <div>
               <label
                 className="block text-gray-700 text-sm font-bold mb-1"
