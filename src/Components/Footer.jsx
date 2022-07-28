@@ -44,7 +44,7 @@ function Footer() {
           <p className="hidden sm:block">Todos os direitos reservados</p>
         )}
 
-        <div className="flex flex-col items-center w-auto jk:hidden">
+        <div className="flex flex-col items-center w-auto sm:hidden">
           <p className="mb-4 font-poppins">Suporte</p>
           <p className="mb-2 text-sm">email1@contato.gmail.com</p>
           <p className="mb-2 text-sm">email2@contato.gmail.com</p>
