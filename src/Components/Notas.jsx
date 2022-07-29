@@ -100,6 +100,8 @@ export default function Notas() {
   const [anoSelected, setAnoSelected] = React.useState('');
 
   const [turma, setTurma] = React.useState('');
+  const [turmaNumber, setTurmaNumber] = React.useState('');
+
   const [turmaSelected, setTurmaSelected] = React.useState('');
 
   const [periodo, setPeriodo] = React.useState('');
@@ -112,7 +114,9 @@ export default function Notas() {
   const [alunosArray, setAlunosArray] = React.useState([]);
 
   const [blank, setBlank] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
 
+  const [lancandoNotas, setLancandoNotas] = React.useState(false);
   const turmasFetch = [];
 
   const { data } = useQuery(GET_ALL_CLASSES);
@@ -136,6 +140,7 @@ export default function Notas() {
       setAnoSelected(ano);
       setPeriodoSelected(periodo);
       setTurmaSelected(turma);
+      setVisible(true);
 
       const data = await request(
         'https://api-sa-east-1.graphcms.com/v2/cl4vkzw981oj301t658u6cr2b/master',
@@ -161,8 +166,11 @@ export default function Notas() {
               materia: disciplina,
               periodo: parseInt(periodo),
             },
-          ).then(atualizarNotas);
+          )
+            .then(atualizarNotas)
+            .then(setLancandoNotas(true));
         } else {
+          setLancandoNotas(true);
           setLoading(false);
         }
       });
@@ -228,6 +236,7 @@ export default function Notas() {
           placeholder="Ano"
           onChange={(a) => {
             setAno(a.value);
+            setVisible(false);
           }}
         />
         <Select
@@ -236,6 +245,8 @@ export default function Notas() {
           placeholder="Turma"
           onChange={(a) => {
             setTurma(a.value);
+            setVisible(false);
+            setTurmaNumber(a.label);
           }}
         />
         <Select
@@ -244,6 +255,7 @@ export default function Notas() {
           placeholder="Periodo"
           onChange={(a) => {
             setPeriodo(a.value);
+            setVisible(false);
           }}
         />
 
@@ -253,6 +265,7 @@ export default function Notas() {
           placeholder="Disciplina"
           onChange={(a) => {
             setDisciplina(a.value);
+            setVisible(false);
           }}
         />
 
@@ -314,13 +327,13 @@ export default function Notas() {
         </div>
       ) : null}
 
-      {turmaSelected && (
+      {visible && lancandoNotas && (
         <div
           className=" text-zinc-800 mt-12 xl:w-2/3 flex flex-col max-w-3xl mb-10
         md:w-full p-2 sm:overflow-auto gap-1 sm:mb-24 "
         >
           <h2 className="text-center pt-4 text-2xl ">
-            {anoSelected} ---{alunosTurma ? alunosTurma.turma.number : null} ---
+            {anoSelected} --- {turmaNumber} ---
             {disciplinaSelected} --- {periodoSelected}p
           </h2>
 
@@ -344,6 +357,7 @@ export default function Notas() {
               Final
             </p>
           </div>
+
           <div>
             {alunosArray.map((aluno) => (
               <div key={aluno.id}>

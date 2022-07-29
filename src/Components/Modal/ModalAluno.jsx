@@ -13,7 +13,7 @@ export default function ModalAluno({ aluno, setModalState }) {
       <div className={styles.modal} onClick={handleOutsideClick}>
         <div className=" m-auto z-10 bg-zinc-100 w-fit h-fit rounded flex flex-col text-center max-w-lg shadow py-5 relative mt-[90px]">
           <span
-            className="absolute top-0 bottom-0 right-0 px-4 py-3 sm:py-0 sm:px-0"
+            className="absolute top-0 bottom-0 right-0 px-4 py-3 h-4 sm:py-0 sm:px-0"
             onClick={() => setModalState(false)}
           >
             <svg

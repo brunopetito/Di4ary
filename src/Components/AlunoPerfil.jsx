@@ -14,7 +14,7 @@ export default function AlunoPerfil({ aluno }) {
           onClick={() => setModalState(!modal)}
         >
           <img src={aluno.foto.url} className="w-32 h-32" />
-          <span className="truncate">{aluno.name}</span>
+          <span className="truncate w-28">{aluno.name}</span>
         </button>
       </div>
 

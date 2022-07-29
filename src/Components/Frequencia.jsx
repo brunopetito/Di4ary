@@ -1,8 +1,8 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
-import { useEffect } from 'react';
+
 import Select from 'react-select';
-import { UserContext } from '../UserContext';
+
 import { request } from 'graphql-request';
 import FrequenciaAlunos from './FrequenciaAlunos';
 
@@ -65,8 +65,6 @@ function Frequencia() {
   const [consultar, setConsultar] = React.useState(false);
   const [consultarSelected, setConsultarSelected] = React.useState(false);
 
-  const [lancar, setLancar] = React.useState(false);
-  const [lancarSelected, setLancarSelected] = React.useState(false);
   const [showDate, setShowDate] = React.useState(false);
   const [dia, setDia] = React.useState('');
   const [showStudent, setShowStudent] = React.useState(false);
@@ -83,16 +81,7 @@ function Frequencia() {
   }, [ano]);
 
   async function buttonClick() {
-    if (ano && disciplina && turma && (lancar || consultar)) {
-      if (lancar) {
-        setConsultarSelected(false);
-        setLancarSelected(true);
-      }
-      if (consultar) {
-        setLancarSelected(false);
-        setConsultarSelected(true);
-      }
-
+    if (ano && disciplina && turma) {
       setBlank(false);
       setLoading(!loading);
       setShowDate(true);
@@ -111,40 +100,8 @@ function Frequencia() {
     }
   }
   return (
-    <section className="flex items-center h-fit flex-col  divide-zinc-200 ">
-      <div className="mt-8 gap-4  flex space-between">
-        <button
-          className={`${
-            lancar &&
-            'text-emerald-800 border-emerald-800 bg-[#7ceab7] font-medium '
-          } border p-2 rounded hover:border-emerald-800 hover:text-emerald-800  `}
-          onClick={() => {
-            if (consultar) {
-              setConsultar(!consultar);
-              setShowDate(false);
-            }
-
-            setLancar(!lancar);
-          }}
-        >
-          Lançar
-        </button>
-        <button
-          className={`${
-            consultar &&
-            'text-emerald-800 border-emerald-800 bg-[#7ceab7] font-medium '
-          } border p-2 rounded hover:border-emerald-800 hover:text-emerald-800  `}
-          onClick={() => {
-            if (lancar) {
-              setLancar(!lancar);
-              setShowDate(false);
-            }
-            setConsultar(!consultar);
-          }}
-        >
-          Consultar
-        </button>
-      </div>
+    <section className="flex items-center h-fit flex-col  divide-zinc-200 mb-24 ">
+      <div className=" gap-4  flex space-between"></div>
       <div
         className="  flex 
       max-w-5xl 
@@ -158,70 +115,68 @@ function Frequencia() {
       sm:justify-start
       sm:relative "
       >
-        {(lancar || consultar) && (
-          <>
-            <Select
-              className="w-[142.2px]  mn:w-fit "
-              options={anos}
-              placeholder="Ano"
-              onChange={(a) => {
-                setAno(a.value);
+        <>
+          <Select
+            className="w-fit sm:w-[142.2px] "
+            options={anos}
+            placeholder="Ano"
+            onChange={(a) => {
+              setAno(a.value);
 
-                setShowDate(false);
-              }}
-            />
-            <Select
-              className="w-[103.91px]  mn:w-fit sm:w-[118.4px]"
-              options={turmas}
-              placeholder="Turma"
-              onChange={(a) => {
-                setTurma(a.value);
-                setTurmaNumber(a.label);
+              setShowDate(false);
+            }}
+          />
+          <Select
+            className="w-[103.91px]  mn:w-fit sm:w-[118.4px]"
+            options={turmas}
+            placeholder="Turma"
+            onChange={(a) => {
+              setTurma(a.value);
+              setTurmaNumber(a.label);
 
-                setShowDate(false);
-              }}
-            />
-            <Select
-              className="w-[142.2px] mn:w-fit "
-              options={materia}
-              placeholder="Disciplina"
-              onChange={(a) => {
-                setDisciplina(a.value);
-                setShowDate(false);
-              }}
-            />
+              setShowDate(false);
+            }}
+          />
+          <Select
+            className="w-[142.2px] mn:w-fit "
+            options={materia}
+            placeholder="Disciplina"
+            onChange={(a) => {
+              setDisciplina(a.value);
+              setShowDate(false);
+            }}
+          />
 
-            {loading ? (
-              <button className="py-1 px-4 w-fit h-[38px] rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 ">
-                Buscando...
-              </button>
-            ) : (
-              <button
-                onClick={buttonClick}
-                className=" bg-violet-300 w-fit py-1 px-6 h-[38px] rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
+          {loading ? (
+            <button className="py-1 px-4 w-fit h-[38px] rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 ">
+              Buscando...
+            </button>
+          ) : (
+            <button
+              onClick={buttonClick}
+              className=" bg-violet-300 w-fit py-1 px-6 h-[38px] rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
           duration-300 "
-              >
-                Buscar ➜
-              </button>
-            )}
-          </>
-        )}
+            >
+              Buscar ➜
+            </button>
+          )}
+        </>
       </div>
       {blank ? (
         <div
           className="bg-red-100 border border-red-400 text-red-700 px-5 py-3 rounded relative mt-4 sm:px-3"
           role="alert"
         >
-          <strong class="font-bold sm:hidden">Carambolas !</strong>
-          <span class="block sm:inline">
+          <strong className="font-bold sm:hidden">Carambolas !</strong>
+          <span className="block sm:inline">
             Você esqueceu de selecionar um campo.
           </span>
           <span
-            class="absolute top-0 bottom-0 right-0 px-4 py-3 sm:py-0 sm:px-0"
+            className="absolute top-0 bottom-0 right-0 px-4 py-3 sm:py-0 sm:px-0"
             onClick={() => setBlank(false)}
           >
             <svg
-              class="fill-current h-6 w-6 text-red-500"
+              className="fill-current h-6 w-6 text-red-500"
               role="button"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -238,16 +193,22 @@ function Frequencia() {
           <p className="text-2xl mt-8">
             {ano} -- {disciplina} -- {turmaNumber}
           </p>
-          <div className="mt-4 flex  gap-2">
+          <div className="mt-4 flex  gap-2 mb-8">
             <div className=" mt-4 w-36 flex">
               <input
                 className="border p-2 rounded"
                 type="date"
-                onChange={({ target }) => setDia(target.value)}
+                min="2022-01-01"
+                max="2025-12-31"
+                onChange={({ target }) => {
+                  setDia(target.value);
+                  setShowStudent(false);
+                }}
               />
             </div>
             <button
-              className="border p-2 h-[43px] mt-4 rounded"
+              className=" p-2 h-[43px] mt-4 rounded bg-violet-300  text-violet-800 hover:bg-violet-400 hover:text-white transition 
+              duration-300"
               onClick={() => setShowStudent(true)}
             >
               ➜
@@ -259,11 +220,15 @@ function Frequencia() {
       {showStudent && dia && (
         <>
           {alunosArray.map((aluno) => (
-            <div key={aluno.id}>
+            <div key={aluno.id} className="mt-2">
               <FrequenciaAlunos
                 aluno={aluno}
                 showStudent={showStudent}
                 showDate={showDate}
+                dia={dia}
+                materia={disciplina}
+                turma={turma}
+                ano={ano}
               />
             </div>
           ))}
