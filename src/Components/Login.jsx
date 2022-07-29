@@ -54,7 +54,7 @@ function Login() {
         )}
         <div className="mt-2">
           <p>Username: admin@gmail.com</p>
-          <p>Senha: admin</p>
+          <p>Senha: admin1234</p>
         </div>
       </div>
     </section>
