@@ -4,11 +4,15 @@ import { UserContext } from '../UserContext';
 function Login() {
   const [username, SetUsername] = React.useState('');
   const [password, SetPassword] = React.useState('');
+  const [loading, setLoading] = React.useState();
   const { userLogin, data, setData } = React.useContext(UserContext);
 
   async function handleClick() {
     try {
-      const logar = await userLogin(username, password);
+      setLoading(true);
+      const logar = await userLogin(username, password).then(() =>
+        setLoading(false),
+      );
     } catch (e) {
       console.log(e);
     }
@@ -35,15 +39,23 @@ function Login() {
             onChange={(p) => SetPassword(p.target.value)}
           />
         </div>
-        <button
-          className="bg-violet-300 w-fit py-1 px-6 h-[38px] rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
+        {loading ? (
+          <button className="py-1 px-4 w-fit h-[38px] rounded text-white  font-display font-bold cursor-no-drop opacity-3 bg-gray-300 opacity-8 mt-8 ">
+            Logando...
+          </button>
+        ) : (
+          <button
+            onClick={handleClick}
+            className=" bg-violet-300 w-fit py-1 px-6 h-[38px] rounded text-violet-800 font-display font-bold hover:bg-violet-400 hover:text-white transition
           duration-300 mt-8"
-          onClick={handleClick}
-        >
-          Logar ➜
-        </button>
-        <p>Username: admin@gmail.com</p>
-        <p>Senha: admin</p>
+          >
+            Logar ➜
+          </button>
+        )}
+        <div className="mt-2">
+          <p>Username: admin@gmail.com</p>
+          <p>Senha: admin</p>
+        </div>
       </div>
     </section>
   );

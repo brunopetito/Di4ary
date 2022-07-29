@@ -51,7 +51,7 @@ function Turmas() {
   const [ano, setAno] = React.useState('');
   const [alunosInTurma, setAlunosInTurma] = React.useState();
   const { data } = useQuery(GET_ALL_CLASSES);
-
+  const [showStudent, setShowStudent] = React.useState();
   const turmasFetch = [];
 
   React.useEffect(() => {
@@ -68,6 +68,8 @@ function Turmas() {
   async function buttonClick() {
     if (turmaSelected && ano) {
       setBlank(false);
+
+      setShowStudent(true);
       setLoading(!loading);
       const data = await request(
         'https://api-sa-east-1.graphcms.com/v2/cl4vkzw981oj301t658u6cr2b/master',
@@ -81,7 +83,6 @@ function Turmas() {
     } else {
       setBlank(true);
     }
-    console.log(alunosInTurma);
   }
   return (
     <section className="flex items-center h-fit flex-col divide-y divide-zinc-200 mb-8 ">
@@ -93,6 +94,7 @@ function Turmas() {
             placeholder="Ano"
             onChange={(a) => {
               setAno(a.value);
+              setShowStudent(false);
             }}
           />
           <Select
@@ -101,6 +103,7 @@ function Turmas() {
             placeholder="Turmas"
             onChange={(a) => {
               setTurmaSelected(a.value);
+              setShowStudent(false);
             }}
           />
         </div>
@@ -145,7 +148,7 @@ function Turmas() {
         </div>
       ) : null}
 
-      {alunosInTurma && (
+      {alunosInTurma && showStudent && (
         <div className="w-3/5 text-zinc-800 mt-12 xl:w-2/3 flex flex-col  max-w-screen-md">
           <div className="flex w-full  flex-col items-center  mt-10 justify-center text-zinc-800 ">
             <p className=" w-24 bg-emerald-200 text-center text-emerald-900 py-2 px-4 rounded font-display font-bold">
