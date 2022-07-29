@@ -26,7 +26,7 @@ export default function Home() {
             escolar digital
           </p>
           <p className="mt-12">
-            Somos a menor plataforma de serviços feita para escolas. Nossa
+            Somos a mais nova plataforma de serviços feita para escolas. Nossa
             parceria funciona assim: o Di4ry oferece facilidade em gestão
             pedagógica e você toma as melhores decisões para a sua escola, com
             mais segurança, controle e tranquilidade.
