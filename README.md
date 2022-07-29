@@ -46,7 +46,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ### Author
 <a href="https://www.instagram.com/brunopetito7/">
- <img  src="https://avatars.githubusercontent.com/u/74633594?v=4" width="50px;" style="border-radius:50%;"/>
+ <img  src="https://avatars.githubusercontent.com/u/74633594?v=4" width="80px";/>
  <br />
   
  <sub><b>Bruno Petito</b></sub></a> 
