@@ -82,6 +82,7 @@ function Frequencia() {
 
   async function buttonClick() {
     if (ano && disciplina && turma) {
+      setDia('');
       setBlank(false);
       setLoading(!loading);
       setShowDate(true);
@@ -133,7 +134,6 @@ function Frequencia() {
             onChange={(a) => {
               setTurma(a.value);
               setTurmaNumber(a.label);
-
               setShowDate(false);
             }}
           />
